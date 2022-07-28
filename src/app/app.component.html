@@ -1,9 +1,79 @@
-<div class="routing-example">
-  <div class="grid">
-    <a routerLink="module-one">Mod One</a>
-    <a routerLink="module-two">Mod Two</a>
-    <a routerLink="module-three">Mod Three</a>
+<h3 style="color:blue;">{{ title }}</h3>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarTogglerDemo03"
+    aria-controls="navbarTogglerDemo03"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mt-1 mt-lg-0">
+      <li>
+        <a routerLink="/home" routerLinkActive="active"
+          ><button type="button" class="btn btn-primary padding margin">
+            Home
+          </button></a
+        >
+      </li>
+      <li>
+        <a routerLink="/aboutus" routerLinkActive="active"
+          ><button type="button" class="btn btn-primary padding">
+            About Us
+          </button></a
+        >
+      </li>
+      <li>
+        <a routerLink="/contactus" routerLinkActive="active"
+          ><button type="button" class="btn btn-primary padding">
+            Contact Us
+          </button></a
+        >
+      </li>
+      <li>
+        <a routerLink="/login" routerLinkActive="active"
+          ><button type="button" class="btn btn-primary login">Login</button></a
+        >
+      </li>
+      <li>
+        <a routerLink="/signup" routerLinkActive="active"
+          ><button type="button" class="btn btn-primary signup">
+            SignUp
+          </button></a
+        >
+      </li>
+    </ul>
   </div>
+</nav>
+<router-outlet></router-outlet>
+<hr />
+<h3 style="color:blue;">{{ oneWay }}</h3>
+<input type="color" name="color" placeholder="color" [(ngModel)]="color" />
+<div style="background-color:{{ color }};">Hello World</div>
+<hr />
 
-  <router-outlet></router-outlet>
-</div>
+<h3 style="color:blue;">{{ twoWay }}</h3>
+<label for="userExample" class="form-label">UserName:</label>
+<input
+  type="email"
+  class="form-control formWidth"
+  id="userExample"
+  placeholder="Enter Username"
+  [(ngModel)]="useName"
+/>
+<label for="pwdExample" class="form-label">Password:</label>
+<input
+  type="password"
+  class="form-control formWidth"
+  id="pwdExample"
+  placeholder="Enter Password"
+  [(ngModel)]="passWord"
+/><br />
+<button type="submit" (click)="credentials()" class="btn btn-success">
+  Submit
+</button>
+<hr />

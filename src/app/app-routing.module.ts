@@ -1,29 +1,22 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { AboutusComponent } from './component/aboutus/aboutus.component';
+import { ContactusComponent } from './component/contactus/contactus.component';
+import { HomeComponent } from './component/home/home.component';
+import { LoginComponent } from './component/login/login.component';
+import { SignupComponent } from './component/signup/signup.component';
 
 const routes: Routes = [
-  {
-    path: 'module-one',
-    loadChildren: () =>
-      import(`./moduleOne/module-one.module`).then((m) => m.ModuleOneModule),
-  },
-  {
-    path: 'module-two',
-    loadChildren: () =>
-      import(`./moduleTwo/module-two.module`).then((m) => m.ModuleTwoModule),
-  },
-  {
-    path: 'module-three',
-    loadChildren: () =>
-      import(`./moduleThree/module-three.module`).then(
-        (m) => m.ModuleThreeModule
-      ),
-  },
-  { path: '', redirectTo: 'module-one', pathMatch: 'full' },
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'aboutus', component: AboutusComponent },
+  { path: 'contactus', component: ContactusComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { enableTracing: false })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
